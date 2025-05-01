@@ -211,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('Write a summary about yourself', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight:FontWeight.bold)),
+            child: Text('Summary about yourself', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight:FontWeight.bold)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
