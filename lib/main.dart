@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'About Me',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purpleAccent),
+        fontFamily: "Jakarta",
       ),
       home: const MyHomePage(),
     );
@@ -85,95 +87,45 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      backgroundColor: Colors.orange,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Icon(
-          Icons.people,
-          size: 35,
-          color: Colors.yellow,
-        ),
-        leadingWidth: 50.90,
+        elevation:2,
         automaticallyImplyLeading: false,
-
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // ch0xff_14_14_14 while the other colors stay the same.
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        centerTitle: true,
+        centerTitle: false,
 
 
-        // title: Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //   children: [
-        //     Icon(
-        //       Icons.people_alt_rounded,
-        //       size: 70,
-        //       color: Colors.grey,
-        //     ),
-        // Image.network(
-        //     "https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
-        //         height: 35,
-        //         width: 35,
-        // ),
-        //   Column(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: [
-        //       Text("A B O U T  M E",
-        //           style: TextStyle(color: Colors.black)
-        //       ),
-        //       Text("My Name is Mercy A.A",
-        //           style: TextStyle(color: Colors.grey)
-        //       ),
-        //     ],
-        //   ),
-        //   Icon(
-        //     Icons.video_call,
-        //     size: 70,
-        //     color: Colors.grey,
-        //   ),
-        //   Icon(
-        //     Icons.call,
-        //     size: 70,
-        //     color: Colors.black,
-        //   ),
-        //   Icon(
-        //     Icons.search,
-        //     size: 70,
-        //     color: Colors.white,
-        //   ),
-        // ],
-        // ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "A B O U T  M E",
-              style: TextStyle(
-                  color: Colors.yellow,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.normal),
-            ),
-            //     Text(
-            //       "My Name is Mercy A.A a Software Engineer with Tri-Inspire",
-            //       textAlign: TextAlign.left,
-            //       style: TextStyle(
-            //           color: Colors.white70,
-            //           fontSize: 13,
-            //           fontWeight: FontWeight.w500,
-            //           fontStyle: FontStyle.normal),
-            //     ),
-          ],
-        ),
-        // actions: [
-        //   Icon(Icons.video_call, color: Colors.white, size: 30,),
-        //   Icon(Icons.call, color: Colors.white, size: 30,),
-        //   Icon(Icons.search, color: Colors.white, size: 30,),
-        // ],
-      ),
-      body: Column(
+         title: Text("MERCY AA",
+           style:
+           TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w600),
+         ),
+        actions:[
+          GestureDetector(
+            onDoubleTap: () {
+              print("Work is Double tapped");
+            },
+             child: Text("WORK",style: TextStyle(fontSize:25, color: Colors.black, fontWeight: FontWeight.w600),
+             ),
+           ),
+           SizedBox(
+             width: 25,
+           ),
+          GestureDetector(
+            onTap: () {
+             print("About is tapped");
+    },
+             child: Text("ABOUT", style: TextStyle(fontSize:25, color: Colors.black, fontWeight: FontWeight.w600),
+             ),
+           ),
+    ],
+    ),
+    body: Column(
         // Column is also a layout widget. It takes a list of children and
         // arranges them vertically. By default, it sizes itself to fit its
         // children horizontally, and tries to be as tall as its parent.
@@ -190,6 +142,17 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+            Container(
+              padding: EdgeInsets.all(12),
+              margin: EdgeInsets.all(8),
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 231, 236, 226),
+                shape: BoxShape.circle,
+                image: DecorationImage(image: AssetImage("assets/png/mercy.png"))
+              ),
+            ),
           // const Text('How many Likes can you give me:'),
           //   '$_decrease',
           //   style: Theme.of(context).textTheme.headlineMedium,
@@ -207,28 +170,79 @@ class _MyHomePageState extends State<MyHomePage> {
           //   style: Theme.of(context).textTheme.headlineMedium,
           // ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Summary about yourself', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight:FontWeight.bold)),
+          SizedBox(
+            width: 350,
+              child: Column(
+                children: [
+                  Text("Sr. Mobile\nDeveloper",
+                      textAlign :TextAlign.left,
+                      style: TextStyle(fontSize: 50, color: Colors.black, fontWeight:FontWeight.bold),
+    ),
+          SizedBox(
+            height:15,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('My name is Mercy Aderonke Adetogun popularly known as AMA gotten from the acroymn of my first'
-                ' three names and which is also my brand name. A fresh graduate of Ladoke Akintola Unversity of Technology from'
-                'the Department of Biochemistry,officially known as a Certified Biochemist. My Hobbies are singing, '
-                'dancing ,cooking, reading, discovering new things and many more. I am an Enterpreneur, a software developer, interested'
-                'in problem solving,Health Enthusiast. I am so much exicited about this new beginning i mean continuing my software development'
-                ' journey.I would make sure i attend my classes,do my assignments up to date,do my own personal development and be dedicated'
-                ' and consistent in this journey of becoming that great software developer.', style: TextStyle(color: Colors.white, letterSpacing: 1.5),
-            ),
+          Text("Currently leading the design & strategy of Crosby's retail point-of-sale tool called ''Encore.''",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 16,color: Colors.black, fontWeight: FontWeight.w500)),
+          SizedBox(
+            height:15,
           ),
+          Text("In my spare time, I build Framer templates and run an online store.",
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 16,color: Colors.black, fontWeight: FontWeight.w500)
+    ),
+    ],
+          ),
+    ),
+
+          SizedBox(
+            height: 30,
+          ),
+          SizedBox(
+          width: 350,
+            child: Container(
+                  height: 50,
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(color: Colors.black,
+                  borderRadius: BorderRadius.circular(50),),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("MERCYADETOGUN247@GMAIL.COM",
+                      style: TextStyle(fontSize: 15, color: Colors.white,fontWeight: FontWeight.w500),),
+
+                      SizedBox(
+                        width:20,
+                      ),
+                      Icon(
+                        Icons.content_copy_rounded,
+                        color: Colors.white
+                      )
+
+
+                    ],
+                  ) ,
+                ),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Text('My name is Mercy Aderonke Adetogun popularly known as AMA gotten from the acroymn of my first'
+          //       ' three names and which is also my brand name. A fresh graduate of Ladoke Akintola Unversity of Technology from'
+          //       'the Department of Biochemistry,officially known as a Certified Biochemist. My Hobbies are singing, '
+          //       'dancing ,cooking, reading, discovering new things and many more. I am an Enterpreneur, a software developer, interested'
+          //       'in problem solving,Health Enthusiast. I am so much exicited about this new beginning i mean continuing my software development'
+          //       ' journey.I would make sure i attend my classes,do my assignments up to date,do my own personal development and be dedicated'
+          //       ' and consistent in this journey of becoming that great software developer.', style: TextStyle(color: Colors.black, letterSpacing: 1.5),
+          //   ),
+          //),
           SizedBox(
             width: 10,
           ),
-      ],
+          ],
       ),
+
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
